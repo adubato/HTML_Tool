@@ -32,6 +32,7 @@ public class div extends element {
 		id_ = count;
 	}
 	
+	/** @param A list of html elements **/
 	public void setInnerHtml(List<element> elements) {
 		innerHtml_ = elements;
 	}
@@ -41,11 +42,39 @@ public class div extends element {
 		return innerHtml_;
 	}
 	
+	/** @return An element contained in the div at the specified index **/
+	public element getInnerHtmlAtIndex(int index) {
+		return innerHtml_.get(index);
+	}
+	
+	/** @return The assigned ID number of the div. Representative of index in which object was created relative to other divs. **/
 	public int getIdNum() {
 		return id_;
 	}
-	
+
+	/** @return The total number of div objects created **/
 	public static int getCount() {
 		return count;
+	}
+	
+	/** @param An element to be added to the div's innerHtml **/
+	public void addElement(element e) {
+		innerHtml_.add(e);
+	}
+	
+	/** @param index The intended index 
+	 ** @param e An element to be added to the div's innerHtml at the specified index **/
+	public void addElementAtIndex(int index, element e) {
+		innerHtml_.add(index, e);
+	}
+	
+	/** @param An element to be removed from the div's innerHtml **/
+	public void removeElement(element e) {
+		innerHtml_.remove(e);
+	}
+	
+	/** @param The index of an element to be removed from the div's innerHtml **/
+	public void removeElementAtIndex(int index) {
+		innerHtml_.remove(index);
 	}
 }
