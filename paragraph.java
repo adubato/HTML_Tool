@@ -15,7 +15,7 @@ public class paragraph extends element {
 	}
 	
 	/** Constructs a new paragraph with an innerHtml parameter
-	 ** @param A String to be contained in the paragraph **/
+	 ** @param innerHtml A String to be contained in the paragraph **/
 	public paragraph(String innerHtml) {
 		this.setElementType(htmlElement.PARAGRAPH);
 		innerHtml_ = innerHtml;
@@ -23,7 +23,7 @@ public class paragraph extends element {
 		id_ = count;		
 	}
 	
-	/** @param The innerHtml of the paragraph. **/
+	/** @param innerHtml The innerHtml of the paragraph. **/
 	public void setInnerHtml(String innerHtml) {
 		innerHtml_ = innerHtml;
 	}

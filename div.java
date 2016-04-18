@@ -16,7 +16,7 @@ public class div extends element {
 	}
 	
 	/**	Constructs a new div object with elements parameter
-	 ** @param A list of html elements **/
+	 ** @param elements A list of html elements **/
 	public div(List<element> elements) {
 		innerHtml_ = elements;
 		count++;
@@ -24,7 +24,7 @@ public class div extends element {
 	}
 	
 	/**	Constructs a new div object with a single element parameter
-	 ** @param An html element **/
+	 ** @param e An html element **/
 	public div(element e) {
 		innerHtml_ = new ArrayList<element>();
 		innerHtml_.add(e);
@@ -32,7 +32,7 @@ public class div extends element {
 		id_ = count;
 	}
 	
-	/** @param A list of html elements **/
+	/** @param elements A list of html elements **/
 	public void setInnerHtml(List<element> elements) {
 		innerHtml_ = elements;
 	}
@@ -57,7 +57,7 @@ public class div extends element {
 		return count;
 	}
 	
-	/** @param An element to be added to the div's innerHtml **/
+	/** @param e An element to be added to the div's innerHtml **/
 	public void addElement(element e) {
 		innerHtml_.add(e);
 	}
@@ -68,12 +68,12 @@ public class div extends element {
 		innerHtml_.add(index, e);
 	}
 	
-	/** @param An element to be removed from the div's innerHtml **/
+	/** @param e An element to be removed from the div's innerHtml **/
 	public void removeElement(element e) {
 		innerHtml_.remove(e);
 	}
 	
-	/** @param The index of an element to be removed from the div's innerHtml **/
+	/** @param index The index of an element to be removed from the div's innerHtml **/
 	public void removeElementAtIndex(int index) {
 		innerHtml_.remove(index);
 	}
