@@ -37,7 +37,7 @@ public class div extends element {
 		innerHtml_ = elements;
 	}
 	
-	/** @return A list of elements contained in the div **/
+	/** @return The list of elements contained in the div **/
 	public List<element> getInnerHtml() {
 		return innerHtml_;
 	}
