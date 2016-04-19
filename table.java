@@ -3,7 +3,7 @@
 public class table extends element {
 	private int rows_;
 	private int columns_;
-	private String [][] content_;
+	private element [][] content_;
 	private int id_;
 	private static int count;
 	
@@ -24,14 +24,14 @@ public class table extends element {
 		this.setElementType(htmlElement.TABLE);
 		rows_ = rows;
 		columns_ = columns;
-		content_ = new String [rows][columns];
+		content_ = new element [rows][columns];
 		count++;
 		id_ = count;
 	}
 	
 	/** Constructs a new table with a 2D String array parameter
 	 ** @param content A 2D String array **/
-	public table(String [][] content) {
+	public table(element [][] content) {
 		this.setElementType(htmlElement.TABLE);
 		content_ = content;
 		rows_ = content.length;
@@ -51,12 +51,12 @@ public class table extends element {
 	}
 	
 	/** @return The 2D String array of the table's contents **/
-	public String [][] getContent() {
+	public element [][] getContent() {
 		return content_;
 	}
 	
 	/** @return The String within the specified table coordinates **/
-	public String getContentAtIndex(int row, int column) {
+	public element getContentAtIndex(int row, int column) {
 		return content_[row][column];
 	}
 	

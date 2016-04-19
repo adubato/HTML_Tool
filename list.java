@@ -3,7 +3,7 @@ import java.util.*;
  ** @author Michael Adubato **/
 public class list extends element {
 	private String type_;
-	private List<String> content_ = new ArrayList<>();
+	private List<element> content_ = new ArrayList<>();
 	private int id_;
 	private static int count;
 	
@@ -21,7 +21,7 @@ public class list extends element {
 		id_ = count;
 	}
 	
-	public list(String type, ArrayList<String> content) {
+	public list(String type, ArrayList<element> content) {
 		this.setElementType(htmlElement.LIST);
 		type_ = type;
 		content_ = content;
@@ -29,15 +29,15 @@ public class list extends element {
 		id_ = count;
 	}
 	
-	public void add(String s) {
-		content_.add(s);
+	public void add(element e) {
+		content_.add(e);
 	}
 	
-	public void remove(String s) {
-		content_.remove(s);
+	public void remove(element e) {
+		content_.remove(e);
 	}
 	
-	public String get(int index) {
+	public element get(int index) {
 		return content_.get(index);
 	}
 	

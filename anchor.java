@@ -4,7 +4,7 @@ public class anchor extends element {
 
 	private String href_;
 	private String target_;
-	private String innerHtml_;
+	private element innerHtml_;
 	private int id_;
 	private static int count = 0;
 	
@@ -59,12 +59,12 @@ public class anchor extends element {
 		return target_;
 	}
 	
-	public void setInnerHtml(String innerHtml) {
+	public void setInnerHtml(element innerHtml) {
 		innerHtml_ = innerHtml;
 	}
 	
 	/** @return The contents of the anchor. **/
-	public String getInnerHtml() {
+	public element getInnerHtml() {
 		return innerHtml_;
 	}
 	
