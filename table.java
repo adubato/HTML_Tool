@@ -69,5 +69,4 @@ public class table extends element {
 	public static int getCount() {
 		return count;
 	}
-	
 }
