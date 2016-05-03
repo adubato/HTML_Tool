@@ -5,70 +5,58 @@ import java.util.*;
 
 public class htmlReader {
 	
-	private BufferedReader reader_;
-	private String [] lines_;
-	private int numLines_ = -1;
+	private Scanner scanner_;
+	private List<String []> lines_;
 	
 	private List<element> elements_;
 	
-	public htmlReader(String filename) throws IOException {	
-		try { reader_ = new BufferedReader(new FileReader(filename + ".htm")); } // open file
-		catch(FileNotFoundException e) { reader_ = new BufferedReader(new FileReader(filename + ".html")); }
-
-		numLines_ = 0; // initialize numLines_ to 0
-		while (reader_.readLine() != null) numLines_++; // count lines
+	public htmlReader(String filename) throws IOException {
 		
-		lines_ = new String[numLines_]; // allocate lines_ array using numLines_
+		File file = new File(filename + ".htm");
 		
-		try { reader_ = new BufferedReader(new FileReader(filename + ".htm")); } // re-open file to reset reader_
-		catch(FileNotFoundException e) { reader_ = new BufferedReader(new FileReader(filename + ".html")); }
+		scanner_ = new Scanner(file); // open file
 		
-		for(int i = 0; i < lines_.length; i++) lines_[i] = reader_.readLine(); // assign each line to position in array using reader_
+		lines_ = new ArrayList<String[]>();	
 		
-		reader_.close();
+		
+		while(scanner_.hasNextLine()) {
+			if(scanner_.nextLine().contains("</head>")) {
+				while(scanner_.hasNextLine()){
+					lines_.add(scanner_.nextLine().trim().split("<|>"));
+				}
+			}
+		}
+	
+		
+		scanner_.close();
 		
 		parseElements(lines_);
 	}
 	
-	private void parseElements(String [] lines) {		
-		for(String line : lines) {
-
+	private void parseElements(List<String []> lines) {		
+		for(String [] line : lines) {
+			if(line.length > 1) {
+				
+			}
 		}
 	}
 	
-	public String [] getLines() {
+	public List<String []> getLines() {
 		return lines_;
 	}
 	
-	public String getLineAtIndex(int index) {
-		try { return lines_[index]; }
-		catch(ArrayIndexOutOfBoundsException e) { return e.toString(); }
-	}
-	
-	public int getNumLines() {
-		return numLines_;
+	public String [] getLineAtIndex(int index) {
+		try { return lines_.get(index); }
+		catch(ArrayIndexOutOfBoundsException e) { return null; }
 	}
 
 	public static void main(String[] args) throws IOException {
 		
 		htmlReader r = new htmlReader("ExampleDomain");
-		String [] lines = r.getLines();
+		List<String []> lines = r.getLines();
 		
-		for(String s : lines)
-			System.out.println(s);
-		
-		System.out.println(r.getNumLines());
-		System.out.println(r.getLineAtIndex(50));
-		
-		htmlReader r2 = new htmlReader("ExampleDomain_COPY");
-		lines = r.getLines();
-		
-		for(String s : lines)
-			System.out.println(s);
-		
-		System.out.println("r2 " + r2.getNumLines());
-		System.out.println("r2 " + r2.getLineAtIndex(12));
-
+		for(String [] s : lines)
+			System.out.println(Arrays.toString(s));
 	}
 
 }
