@@ -40,7 +40,7 @@ public class anchor extends element {
 		count++;
 		id_ = count;
 	}
-	
+
 	public void setHref(String href) {
 		href_ = href;
 	}
@@ -80,7 +80,7 @@ public class anchor extends element {
 	
 	/** @return [Anchor IdNum: {@link #getIdNum()} | HTMLClass: {@link #getHTMLId()} | HTMLId: {@link #getHTMLClass()} | href: {@link #getHref()} | target: {@link #getTarget()}] **/
 	public String toString() {
-		String s = "[ANCHOR, IdNum: " + this.getIdNum() + " | HTMLClass: " + this.getHTMLClass() + " | HTMLId: " + this.getHTMLId() + " | href: " + this.getHref() + " | target: " + this.getTarget() + "]";
+		String s = "[ANCHOR,\t IdNum: " + this.getIdNum() + " | HTMLClass: " + this.getHTMLClass() + " | HTMLId: " + this.getHTMLId() + " | href: " + this.getHref() + " | target: " + this.getTarget() + "]";
 		return s;
 	}
 }

@@ -1,6 +1,6 @@
 
 public class header extends element {
-	private byte type_;
+	private int type_;
 	private String innerHtml_;
 	private int id_;
 	private static int count;
@@ -21,7 +21,7 @@ public class header extends element {
 		id_ = count;
 	}
 	
-	public header(byte type, String innerHtml) {
+	public header(int type, String innerHtml) {
 		this.setElementType(htmlElement.HEADER);
 		type_ = type;
 		innerHtml_ = innerHtml;
@@ -29,11 +29,11 @@ public class header extends element {
 		id_ = count;
 	}
 	
-	public void setType(byte type) {
+	public void setType(int type) {
 		type_ = type;
 	}
 	
-	public byte getType() {
+	public int getType() {
 		return type_;
 	}
 	
@@ -53,5 +53,10 @@ public class header extends element {
 	/** @return The total number of header objects created **/
 	public static int getCount() {
 		return count;
+	}
+	
+	public String toString() {
+		String s = "[HEADER,\t IdNum: " + this.getIdNum() + " | HTMLClass: " + this.getHTMLClass() + " | HTMLId: " + this.getHTMLId() + " | Header Type: " + this.getType() + " | innerHtml: " + this.getInnerHtml() + "]";
+		return s;
 	}
 }

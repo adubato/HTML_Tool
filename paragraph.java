@@ -42,4 +42,9 @@ public class paragraph extends element {
 	public static int getCount() {
 		return count;
 	}
+	
+	public String toString() {
+		String s = "[PARAGRAPH,\t IdNum: " + this.getIdNum() + " | HTMLClass: " + this.getHTMLClass() + " | HTMLId: " + this.getHTMLId() + " | innerHtml: " + this.getInnerHtml() + "]";
+		return s;
+	}
 }
